@@ -1,0 +1,30 @@
+<h1>Create your new Restaurant here</h1>
+
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+<br>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+<br>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+<br>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+<br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Go back', restaurants_path %>
